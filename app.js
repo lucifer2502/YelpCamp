@@ -26,14 +26,13 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-mongoose.connect("mongodb+srv:rahul:rahul2502@yelpcamp-mbnli.mongodb.net/test?retryWrites=true&w=majority",{
-	useNewUrlParser:true,
-	useCreateIndex:true
-}).then(()=>{
-	console.log("Connected to DB");
-	
-}).catch(err =>{
-	console.log("ERROR:",err.message);
+mongoose.connect('mongodb+srv://rahul:rahul2502@yelpcamp-mbnli.mongodb.net/test?retryWrites=true&w=majority', {
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('Connected to DB!');
+}).catch(err => {
+	console.log('ERROR:', err.message);
 });
 //mongoose.connect("mongodb://localhost/yelp_camp");//
 
