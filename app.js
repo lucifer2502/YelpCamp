@@ -26,8 +26,16 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-//mongodb+srv://rahul:<password>@yelpcamp-mbnli.mongodb.net/<dbname>?retryWrites=true&w=majority
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv:rahul:rahul2502@yelpcamp-mbnli.mongodb.net/<dbname>?retryWrites=true&w=majority",{
+	useNewUrlParser:true,
+	useCreateIndex:true
+}).then(()=>{
+	console.log("Connected to DB");
+	
+}).catch(err =>{
+	console.log("ERROR:",err.message);
+});
+//mongoose.connect("mongodb://localhost/yelp_camp");//
 
 app.use(require("express-session")({
     secret: "Once again Rusty wins cutest dog!",
