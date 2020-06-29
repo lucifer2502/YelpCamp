@@ -26,7 +26,7 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-mongoose.connect("mongodb+srv:rahul:rahul2502@yelpcamp-mbnli.mongodb.net/<dbname>?retryWrites=true&w=majority",{
+mongoose.connect("mongodb+srv:rahul:rahul2502@yelpcamp-mbnli.mongodb.net/yelpcamp?retryWrites=true&w=majority",{
 	useNewUrlParser:true,
 	useCreateIndex:true
 }).then(()=>{
