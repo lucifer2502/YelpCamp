@@ -9,17 +9,20 @@ router.get("/",function(req,res){
 
 router.get("/register",function(req,res){
 	
-	res.render("register");
+	res.render("register",{page:'register'});
 });
 
 router.post("/register",function(req,res){
 	var userName=new User({username:req.body.username});
+		if(req.body.admincode==="secretcode123")
+			{
+				userName.isAdmin=true;
+			}
 		User.register(userName,req.body.password,function(err,user){
-			if(err)
-				{
-				     req.flash("error", err.message);
-					return res.redirect("/register");
-				}
+			if(err){
+                 console.log(err);
+    			return res.render("register", {error: err.message});
+                 }
 			else
 				{
  					passport.authenticate("local")(req,res,function(){
@@ -28,10 +31,13 @@ router.post("/register",function(req,res){
 					});
 				}
 		});
+		
+			
+		
 });
 
 router.get("/login",function(req,res){
-	res.render("login");
+	res.render("login",{page:'login'});
 });
 
 router.post("/login",passport.authenticate("local",{

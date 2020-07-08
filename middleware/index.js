@@ -10,7 +10,7 @@ middelewareObj.checkCampgroundOwnership=function(req,res,next){
 				res.redirect("back");
 				}
 			else{
-				if(foundCampground.author.id.equals(req.user._id))
+				if(foundCampground.author.id.equals(req.user._id)||req.user.isAdmin)
 					{
  						next();
 					}
@@ -38,7 +38,7 @@ middelewareObj.checkCommentsOwnership=function(req,res,next){
 			if(err)
 				res.redirect("back");
 			else{
-				if(foundComment.author.id.equals(req.user._id))
+				if(foundComment.author.id.equals(req.user._id)|| req.user.isAdmin)
 					{
  						next();
 					}
