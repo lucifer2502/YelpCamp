@@ -2,17 +2,7 @@
 <div>
 	<div class="row">
 		<div class="col-md-3">
-			<div classs="lead">Yelp Camp</div>
-			 <div class="list-group">
-				 <div>
-					 <li class="list-group-item active">Info 1</li>
-					 <li class="list-group-item">Info 2</li>
-					 <li class="list-group-item">Info 3</li>
-				 </div>
-				 
-				 
-			 </div>
-			
+			<div classs="lead"><div id='map' style='width: 200px; height: 300px;'></div></div>
 		</div>
 			
         <div class="col-md-9">
@@ -21,6 +11,8 @@
 				<div class="caption">
 				 	<p><h4 class="pull-right">$<%=campground.price%>/night</h4></p>
 				 	<p><a href="#"><h4><%=campground.name%></h4></a></p>
+				 	<p><h4><%=campground.location%></h4></p>
+				
 				    <p><%=campground.description%></p>	
 				
 	                <p>
@@ -79,7 +71,11 @@
 	</div>
 
 </div>
+<script>
+	const campground=<%-JSON.stringify(campground)%>
+</script>
 
+<script src="/javascripts/showPageMap.js"></script>
 
 
 

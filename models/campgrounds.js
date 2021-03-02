@@ -3,7 +3,21 @@ var campgroundSchema=new mongoose.Schema({
 	name:String,
 	price:String,
 	image:String,
+	location:String,
+	geometry:{
+		type:{
+			typee:String,
+			enum:['Point'],
+			required:true,
+		},
+		coordinates:{
+			type:Number,
+			required:true
+		}
+		
+	},
 	description:String,
+
 	createdAt:{type:Date,default:Date.now},
 	author: {
       id: {
